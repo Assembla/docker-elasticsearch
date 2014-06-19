@@ -4,16 +4,18 @@ RUN \
   cd /tmp && \
   curl https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-0.20.6.tar.gz | \
   tar xz && \
-  mv /tmp/elasticsearch-0.20.6 /elasticsearch
+  mv /tmp/elasticsearch-0.20.6 /opt/elasticsearch
+
+COPY elasticsearch.yml /opt/elasticsearch/config/
 
 # Define mountable directories.
-VOLUME ["/data"]
+VOLUME ["/data", "/logs"]
 
 # Define working directory.
 WORKDIR /data
 
 # Define default command.
-CMD ["/elasticsearch/bin/elasticsearch", "-f"]
+CMD ["/opt/elasticsearch/bin/elasticsearch", "-f"]
 
 # Expose ports.
 #   - 9200: HTTP
