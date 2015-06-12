@@ -1,10 +1,8 @@
-FROM dockerfile/java
+FROM assembla/java
 
-RUN \
-  cd /tmp && \
-  curl https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-0.20.6.tar.gz | \
-  tar xz && \
-  mv /tmp/elasticsearch-0.20.6 /opt/elasticsearch
+RUN curl https://download.elastic.co/elasticsearch/elasticsearch/elasticsearch-0.20.6.tar.gz | \
+    tar xvzf - -C /opt && \
+    mv /opt/elasticsearch-* /opt/elasticsearch
 
 COPY elasticsearch.yml /opt/elasticsearch/config/
 
