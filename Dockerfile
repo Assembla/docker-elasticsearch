@@ -1,6 +1,6 @@
 FROM assembla/java
 
-RUN curl https://download.elastic.co/elasticsearch/elasticsearch/elasticsearch-1.5.2.tar.gz | \
+RUN curl https://download.elastic.co/elasticsearch/elasticsearch/elasticsearch-1.6.0.tar.gz | \
     tar xvzf - -C /opt && \
     mv /opt/elasticsearch-* /opt/elasticsearch
 
