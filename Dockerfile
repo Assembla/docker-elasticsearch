@@ -1,6 +1,6 @@
 FROM assembla/java
 
-RUN curl https://download.elastic.co/elasticsearch/elasticsearch/elasticsearch-0.20.6.tar.gz | \
+RUN curl https://download.elastic.co/elasticsearch/elasticsearch/elasticsearch-1.5.2.tar.gz | \
     tar xvzf - -C /opt && \
     mv /opt/elasticsearch-* /opt/elasticsearch
 
@@ -13,7 +13,7 @@ VOLUME ["/data", "/logs"]
 WORKDIR /data
 
 # Define default command.
-CMD ["/opt/elasticsearch/bin/elasticsearch", "-f"]
+CMD ["/opt/elasticsearch/bin/elasticsearch"]
 
 # Expose ports.
 #   - 9200: HTTP
